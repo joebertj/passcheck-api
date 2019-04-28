@@ -6,7 +6,6 @@ const client = new cassandra.Client({ contactPoints: ['localhost'], localDataCen
 
 exports.find = function(req, res){
     const query = 'SELECT count FROM password WHERE shaone = ?';
-    console.log(req.body);
     var shaone = req.body.shaone;	
     client.execute(query, [ shaone ], function(err, result) {
         assert.ifError(err);
