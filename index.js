@@ -11,13 +11,17 @@ module.exports = router;
 
 var app = express();
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+
+app.set('views', __dirname + '/views');
+app.set('view engine', 'pug');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', routes.index);
-app.get('/api/v1/password', password.find);
+app.post('/api/v1/password', password.find);
 
 var options = {
   key: fs.readFileSync('/etc/letsencrypt/live/awitperl.kenchlightyear.com/privkey.pem'),

@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h2 #{title}
+
+  h3 Fill in the values
+  form(method="post" action="/api/v1/password") 
+    table
+      tr
+        td password
+        td
+          input(type="text", name="shaone")
+      tr
+        td(colspan="2")
+          input(type="submit", value="check")

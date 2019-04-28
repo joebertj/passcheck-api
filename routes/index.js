@@ -1,4 +1,3 @@
 exports.index = function(req, res){
-  res.end('{"status": "ok"}');
+    res.render('index', { title: 'Password Checker' });
 };
-
