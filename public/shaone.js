@@ -1,5 +1,5 @@
 function hashPass(){
-    document.passform.shaone.value = 'F15F5AE95711E242D2B068BFB0E1FF70170D23AD';
-    alert("Hello");
+    var shaone = CryptoJS.SHA1(document.passform.shaone.value);	
+    document.passform.shaone.value = shaone.toString().toUpperCase();
     return true;
 }

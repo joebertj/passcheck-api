@@ -1,15 +1,20 @@
 extends layout
 
 block content
+  script(src="/shaone.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha1.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/sha1-min.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/lib-typedarrays-min.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js")
   h2 #{title}
 
   h3 Fill in the values
   form(name="passform" method="post" action="/api/v1/password" onsubmit="hashPass()") 
     table
       tr
-        td password
+        td Enter your password to check
         td
-          input(type="text", name="shaone")
+          input(type="password", name="shaone")
       tr
         td(colspan="2")
           input(type="submit", value="check") 
