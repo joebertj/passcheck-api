@@ -6,15 +6,16 @@ block content
   script(src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/sha1-min.js")
   script(src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/lib-typedarrays-min.js")
   script(src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js")
+  script(src="https://code.jquery.com/jquery-3.4.0.js")
   h2 #{title}
 
-  h3 Fill in the values
-  form(name="passform" method="post" action="/api/v1/password" onsubmit="hashPass()") 
-    table
-      tr
-        td Enter your password to check
-        td
-          input(type="password", name="shaone")
-      tr
-        td(colspan="2")
-          input(type="submit", value="check") 
+  h3 Type your password in the search box. It will be hashed using SHA1 before being sent to the server. Only you will know what you entered.
+  form(name="passform" method="post" action="/api/v1/password")
+    input(type="hidden", name="shaone")
+
+  div(class="container h-100")
+    div(class="d-flex justify-content-center h-100")
+      div(class="searchbar")
+          input(class="search_input", type="text", name="shaone", placeholder="Search...")
+          a(href="javascript:hashPass()", class="search_icon")
+            i(class="fas fa-search")
