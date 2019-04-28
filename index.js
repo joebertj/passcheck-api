@@ -3,7 +3,7 @@ var express = require('express')
   , path = require('path')
   , fs = require('fs')
   , routes = require('./routes')
-  , kiosk = require('./api/v1/kiosk')
+  , password = require('./api/v1/password')
   , bodyParser = require('body-parser');
 
 var router = express.Router();
@@ -17,14 +17,11 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', routes.index);
-app.get('/api/v1/kiosk', kiosk.list);
-app.post('/api/v1/kiosk', kiosk.add);
-/*app.delete('/:id', user.del);
-app.put('/:id',user.update);*/
+app.get('/api/v1/password', password.find);
 
 var options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/py.kenchlightyear.com/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/py.kenchlightyear.com/fullchain.pem')
+  key: fs.readFileSync('/etc/letsencrypt/live/awitperl.kenchlightyear.com/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/awitperl.kenchlightyear.com/fullchain.pem')
 };
 
 https.createServer(options,app).listen(app.get('port'), function(){

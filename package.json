@@ -1,0 +1,12 @@
+{
+  "name": "passcheck-api",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "assert": "^1.4.1",
+    "cassandra-driver": "^4.1.0",
+    "express": "^4.16.4"
+  }
+}
