@@ -9,9 +9,10 @@ block content
   script(src="https://code.jquery.com/jquery-3.4.0.js")
   h2 #{title}
 
-  h3 Type your password in the search box. It will be hashed using SHA1 before being sent to the server. Only you will know what you entered.
+  h4 Type your password in the search box. It will be hashed using SHA1 before being sent to the server. Only you will know what you entered.
   
-  div(id="result")
+  h3
+    div(id="result" class=".h1")
 
   form(name="passform" onsubmit="hashPass();return false;")
     div(class="container h-100")

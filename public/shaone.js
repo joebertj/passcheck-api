@@ -12,6 +12,7 @@ function hashPass(){
 	}else{
 	    $( "#result" ).empty().append( "Your password has been part of a breach " + p.count + " times!");
 	}
+	document.passform.reset();
     });
 }
 $( "#plain" ).on("keydown", function (e) {
