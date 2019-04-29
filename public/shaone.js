@@ -14,3 +14,8 @@ function hashPass(){
 	}
     });
 }
+$( "#plain" ).on("keydown", function (e) {
+    if (e.keyCode === 13) {
+        hashPass();
+    }
+});

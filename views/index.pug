@@ -13,11 +13,11 @@ block content
   
   div(id="result")
 
-  form(name="passform")
+  form(name="passform" onsubmit="hashPass();return false;")
     div(class="container h-100")
       div(class="d-flex justify-content-center h-100")
         div(class="searchbar")
-          input(class="search_input", type="text", name="plain", placeholder="Search...")
+          input(class="search_input", type="password", name="plain", id="plain", placeholder="Search...")
           input(type="hidden", name="shaone")
           a(href="javascript:hashPass()", class="search_icon")
             i(class="fas fa-search")
