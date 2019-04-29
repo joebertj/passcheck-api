@@ -8,7 +8,7 @@ function hashPass(){
     posting.done(function( data ) {
 	var p = JSON.parse(data);
 	if(p.count == 0){
-	    $( "#result" ).empty().append( "Your password is safe" );
+	    $( "#result" ).empty().append( "Your password is safe for now" );
 	}else{
 	    $( "#result" ).empty().append( "Your password has been part of a breach " + p.count + " times!");
 	}
