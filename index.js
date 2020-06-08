@@ -1,5 +1,5 @@
 var express = require('express')
-  , https = require('https')
+  , http = require('http')
   , path = require('path')
   , fs = require('fs')
   , routes = require('./routes')
@@ -23,12 +23,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', routes.index);
 app.post('/api/v1/password', password.find);
 
-
-var options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/awitperl.kenchlightyear.com/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/awitperl.kenchlightyear.com/fullchain.pem')
-};
-
-https.createServer(options,app).listen(app.get('port'), function(){
+http.createServer(options,app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
