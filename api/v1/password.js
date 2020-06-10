@@ -6,7 +6,7 @@ var authProvider = new cassandra.auth.PlainTextAuthProvider(process.env.CASSANDR
 
 var contactPoints = ['cassandra.us-west-2.amazonaws.com:9142'];
 var sslOptions = {
-	  cert: fs.readFileSync('./AmazonRootCA1.pem'),
+	  cert: fs.readFileSync('./public/AmazonRootCA1.pem'),
 	  host: 'cassandra.us-west-2.amazonaws.com',
 	  rejectUnauthorized: true
 };
