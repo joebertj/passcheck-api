@@ -1,8 +1,25 @@
 var assert = require('assert');
 var sprintf = require('sprintf-js').sprintf;
-const cassandra = require('cassandra-driver');
-var authProvider = new cassandra.auth.PlainTextAuthProvider('cassandra', 'cassandra');
-const client = new cassandra.Client({ contactPoints: ['localhost'], localDataCenter: 'datacenter1', keyspace: 'user', authProvider: authProvider });
+var fs = require('fs');
+var cassandra = require('cassandra-driver');
+var authProvider = new cassandra.auth.PlainTextAuthProvider(process.env.CASSANDRA_USER, process.env.CASSANDRA_PASS);
+
+var contactPoints = ['cassandra.us-west-2.amazonaws.com:9142'];
+var sslOptions = {
+	  cert: fs.readFileSync('./AmazonRootCA1.pem'),
+	  host: 'cassandra.us-west-2.amazonaws.com',
+	  rejectUnauthorized: true
+};
+var client = new cassandra.Client(
+	  {
+		      contactPoints: contactPoints, 
+		      authProvider: authProvider, 
+		      localDataCenter: 'dc1', 
+		      keyspace:'user', 
+		      sslOptions: sslOptions
+		      
+		    }
+);
 
 exports.find = function(req, res){
     const query = 'SELECT count FROM password WHERE shaone = ?';

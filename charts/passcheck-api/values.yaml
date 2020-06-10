@@ -9,6 +9,8 @@ image:
 
 # define environment variables here as a map of key: value
 env:
+  CASSANDRA_USER: vault:app/passcheck:username 
+  CASSANDRA_PASS: vault:app/passcheck:password 
 
 # enable this flag to use knative serve to deploy the app
 knativeDeploy: false
