@@ -14,7 +14,7 @@ var client = new cassandra.Client(
 	  {
 		      contactPoints: contactPoints, 
 		      authProvider: authProvider, 
-		      localDataCenter: 'dc1', 
+		      localDataCenter: 'us-west-2', 
 		      keyspace:'user', 
 		      sslOptions: sslOptions
 		      
